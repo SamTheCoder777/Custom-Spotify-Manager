@@ -106,21 +106,32 @@ java -jar customSpotifyManager.jar
 Or in windows, you can run the provided batch file named: runCustomSpotifyManager.bat
 
 
-
-
 #### Set-up-the-program
 
 Please follow these steps:
-
-1. Open setup.txt and paste your clientID and token into the provided space
-2. Restart program if it was open
-2. Run command:
+1. Go to spotify developer dashboard ([here](https://developer.spotify.com/dashboard/login)) and log in
+2. On the dashboard, click create an app and follow instructions
+![Preview](docs/images/create-an-app.png)
+3. In the top right corner, click edit settings
+![Preview](docs/images/edit-settings)
+4. In the "Redirect URIs" section, write and click add:
+> http://localhost:8080
+![Preview](docs/images/add-uri.png)
+5. Scroll down and save
+6. At top right, the clientID and token (click "show client secret") are located
+7. Open setup.txt and paste your clientID and token (client secret) into the provided space
+![Preview](docs/images/clientid-token-setup.png)
+8. Restart program if it was open
+9. Run command:
 ```sh
 init
 ```
-3. Copy and paste the returned url into your browser.
-4. When the browser redirects, copy and paste the code into the setup.txt in the provided space
-5. Press enter in the program and you are all set!
+10. Copy and paste the returned url into your browser.
+11. Click agree and paste your code into setup.txt:
+![Preview](docs/images/get-code.png)
+12. At this step, your setup.txt should looke like:
+![Preview](docs/images/setup-txt.png)
+13. Press enter in the program and you are all set!
 
 #### List-of-commands
 
