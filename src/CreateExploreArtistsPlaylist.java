@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CreateExploreArtistsPlaylist {
-    private static String[] artistIDs = new String[199];
+    private static String[] artistIDs = new String[200];
     private static int offset = 0;
     private static int index = 0;
     private static String q = "genre:";
@@ -35,6 +35,7 @@ public class CreateExploreArtistsPlaylist {
     public static void execute(){
 
         try {
+            q="genre:";
             q += Main.genre;
                        getCurrentUsersProfileRequest = Main.spotifyApi.getCurrentUsersProfile()
                     .build();
@@ -46,7 +47,7 @@ public class CreateExploreArtistsPlaylist {
             playlist = createPlaylistRequest.execute();
             playlistId = playlist.getId();
 
-            for(int i = 0; i < 1; i++){
+            for(int i = 0; i < 3; i++){
                 searchArtistsRequest = Main.spotifyApi.searchArtists(q)
 //          .market(CountryCode.SE)
             .limit(50)
@@ -94,6 +95,7 @@ public class CreateExploreArtistsPlaylist {
                             if (!urisArrayList.contains(trackSimplifiedPaging.getItems()[trackRandomNum].getUri())) {
                                 urisArrayList.add(trackSimplifiedPaging.getItems()[trackRandomNum].getUri());
                                 System.out.println("ADDED: " + trackSimplifiedPaging.getItems()[trackRandomNum].getName());
+                                Thread.sleep(200);
                             }
                         }
                         uris = new String[urisArrayList.size()];
@@ -106,7 +108,7 @@ public class CreateExploreArtistsPlaylist {
 
                     }
             }
-        } catch (ParseException|SpotifyWebApiException|IOException e) {
+        } catch (InterruptedException|ParseException|SpotifyWebApiException|IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
         System.out.println("-----------DONE-----------");
