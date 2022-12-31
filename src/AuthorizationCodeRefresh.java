@@ -4,7 +4,10 @@ import se.michaelthelin.spotify.model_objects.credentials.AuthorizationCodeCrede
 import se.michaelthelin.spotify.requests.authorization.authorization_code.AuthorizationCodeRefreshRequest;
 import se.michaelthelin.spotify.requests.authorization.authorization_code.AuthorizationCodeRequest;
 
+import java.awt.*;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 public class AuthorizationCodeRefresh {
@@ -50,15 +53,17 @@ public class AuthorizationCodeRefresh {
             // Set access and refresh token for further "spotifyApi" object usage
             Main.spotifyApi.setAccessToken(authorizationCodeCredentials.getAccessToken());
             Main.spotifyApi.setRefreshToken(authorizationCodeCredentials.getRefreshToken());
-            try{
+
                 File myObj = new File("refresh.txt");
                 PrintWriter output = new PrintWriter(myObj);
                 output.print(authorizationCodeCredentials.getRefreshToken());
                 output.close();
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
+                System.out.println("Success\n");
+
+                if (Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().browse(new URI("https://github.com/SamTheCoder777/Custom-Spotify-Manager#list-of-commands"));
+                }
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }

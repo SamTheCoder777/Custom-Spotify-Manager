@@ -21,6 +21,7 @@ public class Main {
     static int limit;
     static int numPlaylists;
     static int numArtists;
+    static boolean includeInstrumental = false;
 
 
     public static void main(String[] args){
@@ -67,13 +68,7 @@ public class Main {
                 switch (user.toLowerCase().trim()){
                     case "init":
                         try{
-
                             AuthorizationCodeUri.execute();
-                            System.out.println("press any key to continue");
-                            input.nextLine();
-                            AuthorizationCodeRefresh.init();
-                            AuthorizationCodeRefresh.execute();
-                            System.out.println("Success");
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
@@ -124,7 +119,22 @@ public class Main {
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
                         System.out.println("How many top artists would you like to see?");
                         limit = input.nextInt();
-                        UserTopArtists.execute();
+                        UserTopArtists.getUsersTopArtists();
+                        System.out.println();
+                        System.out.println("Would you like to create a playlist filled with above artists? (y or n)");
+                        user = input.next();
+                        if(user.equalsIgnoreCase("y")){
+                            input.nextLine();
+                            System.out.println("Name of the playlist:");
+                            name = input.nextLine();
+                            System.out.println("How many artists (randomized) should be included in the playlist?");
+                            numArtists = input.nextInt();
+                            System.out.println("How many songs per artists?");
+                            limit = input.nextInt();
+                            System.out.println("Include instrumental? (y or n)");
+                            includeInstrumental = input.next().equalsIgnoreCase("y");
+                            UserTopArtists.createUsersTopArtistsPlaylist();
+                        }
                         System.out.println();
                         break;
 
@@ -133,6 +143,14 @@ public class Main {
                         System.out.println("How many tracks would you like to see?");
                         limit = input.nextInt();
                         UserTopTracks.execute();
+                        System.out.println();
+                        System.out.println("Would you like to add the songs into a playlist? (y or n)");
+                        if(input.next().equalsIgnoreCase("y")){
+                            input.nextLine();
+                            System.out.println("Name of the playlist:");
+                            name = input.nextLine();
+                            UserTopTracks.createUserTopTrackPlaylist();
+                        }
                         System.out.println();
                         break;
 
@@ -245,7 +263,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             System.out.println();
-            throw new RuntimeException(e);
         }
     }
 }
