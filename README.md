@@ -110,27 +110,48 @@ Or in windows, you can run the provided batch file named: runCustomSpotifyManage
 
 Please follow these steps:
 1. Go to spotify developer dashboard ([here](https://developer.spotify.com/dashboard/login)) and log in
+
 2. On the dashboard, click create an app and follow instructions
 ![Preview](docs/images/create-an-app.png)
+
 3. In the top right corner, click edit settings
 ![Preview](docs/images/edit-settings)
+
 4. In the "Redirect URIs" section, write and click add:
 > http://localhost:8080
+
 ![Preview](docs/images/add-uri.png)
+
 5. Scroll down and save
+
 6. At top right, the clientID and token (click "show client secret") are located
+
 7. Open setup.txt and paste your clientID and token (client secret) into the provided space
+
+
 ![Preview](docs/images/clientid-token-setup.png)
+
 8. Restart program if it was open
+
 9. Run command:
 ```sh
 init
 ```
+
 10. Copy and paste the returned url into your browser.
+
 11. Click agree and paste your code into setup.txt:
 ![Preview](docs/images/get-code.png)
+
+
+
 12. At this step, your setup.txt should looke like:
+
+
 ![Preview](docs/images/setup-txt.png)
+
+
+
 13. Press enter in the program and you are all set!
 
 #### List-of-commands
@@ -142,7 +163,7 @@ The commands are not case sensitive
 | -------------------------- | ------------------------------ | --------------------------------------------------------------------------- |
 | Initialize                 | init                           | Set up program for the first run                                            |
 | Create Category Playlist   | CreateCategoryPlaylist         | Creates playlist filled with the songs from category playlist               |
-| Create Custom Playlist     | CreateCustomPlaylist           | Creates playlist filled with random songs from the given playlists provided in playlistList.txt          |
+| Create Custom Playlist     | CreateCustomPlaylist     | Creates playlist filled with random songs from the given playlistsIDs provided in playlistList.txt |
 | Create Explore Artists Playlist| Create Explore Artists Playlist     | Create playlists filled with artists related with given genre                       |
 | Create Playlist        | CreatePlaylist       | Creates playlist with given name                                                   |
 | Create Recommended Playlist              | CreateRecommendedPlaylist                  | Creates playlist filled with recommended songs for a given genre     |
