@@ -137,10 +137,17 @@ Please follow these steps:
 ```sh
 init
 ```
+10. Click agree on the opened browser and your program should be set
+>If the browser does not open automatically, manually open it
+<br>
 
-10. Copy and paste the returned url into your browser.
+</br>
 
-11. Click agree and paste your code into setup.txt:
+**If nothing happens:**
+
+11. Copy and paste the returned url into your browser.
+
+12. Click agree and paste your code into setup.txt:
 ![Preview](docs/images/get-code.png)
 
 
@@ -170,8 +177,8 @@ The commands are not case sensitive
 | Get Artist Top Tracks  | GetArtistTopTracks                  | Prints out top tracks for a given artist                                      |
 | Get Category List               | GetCategoryList          | Prints out list of categories available          |
 | Get Genre List             | GetGenreList                  | Prints out whole list for all available genres                                       |
-| Get My Top Artists                | GetMyTopArtists            | Prints out the user's most played artists                                              |
-| Get My Top Tracks        | GetMyTopTracks                  | Prints out the user's most played tracks                                                 |
+| Get My Top Artists                | GetMyTopArtists            | Prints out the user's most played artists and you can add songs by these artists to a playlist                                             |
+| Get My Top Tracks        | GetMyTopTracks                  | Prints out the user's most played tracks and you can add these songs to a playlist                                              |
 | Get Recommendations | GetRecommendations                  | Prints out recommended tracks for a given genre                                          |
 | Search Artists            | SearchArtists                  | Searches for the artist with given name                                      |
 | Search Genre          |    SearchGenre               | Prints out genre that starts with given character                              |
