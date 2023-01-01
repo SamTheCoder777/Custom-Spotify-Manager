@@ -36,6 +36,7 @@
     - [Running Custom Spotify Manager](#running-custom-spotify-manager)
     - [Set up the program](#set-up-the-program)
     - [List of commands](#list-of-commands)
+- [Disclaimer](#disclaimer)
 - [Contributing](#contributing)
 - [Support](#support)
 - [License](#license)
@@ -95,7 +96,7 @@ Then download the most recent release.
 
 ### Usage
 
-#### Running-Custom-Spotify-Manager
+#### Running Custom Spotify Manager
 
 After downloading the program, in the program directory:
 
@@ -106,7 +107,7 @@ java -jar CustomSpotifyManager.jar
 Or in windows, you can run the provided batch file named: runCustomSpotifyManager.bat
 
 
-#### Set-up-the-program
+#### Set up the program
 
 Please follow these steps:
 1. Go to spotify developer dashboard ([here](https://developer.spotify.com/dashboard/login)) and log in
@@ -138,7 +139,7 @@ Please follow these steps:
 init
 ```
 10. Click agree on the opened browser and your program should be set
->If the browser does not open automatically, manually open it
+>If the browser does not open automatically, move on to the next step
 <br>
 
 </br>
@@ -161,7 +162,7 @@ init
 
 13. Press enter in the program and you are all set!
 
-#### List-of-commands
+#### List of commands
 
 The commands are not case sensitive
 
@@ -182,6 +183,10 @@ The commands are not case sensitive
 | Get Recommendations | GetRecommendations                  | Prints out recommended tracks for a given genre                                          |
 | Search Artists            | SearchArtists                  | Searches for the artist with given name                                      |
 | Search Genre          |    SearchGenre               | Prints out genre that starts with given character                              |
+
+## Disclaimer
+
+Command **"CreateCategoryPlaylist"** may not work consistently due to Spotify not supporting some category playlists in some countries or offers very limited amount of category playlists. If it does not work as expected, please use **"CreateCustomPlaylist"** instead by adding the ID of the playlists you wanted to get random songs from in **playlistList.txt**
 
 ## Contributing
 
