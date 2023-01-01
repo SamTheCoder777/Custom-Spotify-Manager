@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.Scanner;
 
-
 public class Main {
     public static String token;
     public static String clientID;
@@ -220,6 +219,8 @@ public class Main {
                         numArtists = input.nextInt();
                         System.out.println("How many songs per artist?");
                         limit = input.nextInt();
+                        System.out.println("Include instrumental? (y or n)");
+                        includeInstrumental = input.next().equalsIgnoreCase("y");
                         CreateExploreArtistsPlaylist.execute();
                         System.out.println();
                         break;

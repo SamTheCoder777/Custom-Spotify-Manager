@@ -86,7 +86,7 @@ public class UserTopArtists {
                                 if(!Main.includeInstrumental && !trackSimplifiedPaging.getItems()[trackRandomNum].getName().toLowerCase().contains("instrumental")){
                                     urisArrayList.add(trackSimplifiedPaging.getItems()[trackRandomNum].getUri());
                                     System.out.println("ADDED: " + trackSimplifiedPaging.getItems()[trackRandomNum].getName());
-                                    Thread.sleep(100);
+                                    Thread.sleep(200);
                                 }
                                 if(Main.includeInstrumental){
                                     urisArrayList.add(trackSimplifiedPaging.getItems()[trackRandomNum].getUri());

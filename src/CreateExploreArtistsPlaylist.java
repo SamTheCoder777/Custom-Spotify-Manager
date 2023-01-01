@@ -93,9 +93,16 @@ public class CreateExploreArtistsPlaylist {
 
                             int trackRandomNum = ThreadLocalRandom.current().nextInt(0, trackSimplifiedPaging.getItems().length);
                             if (!urisArrayList.contains(trackSimplifiedPaging.getItems()[trackRandomNum].getUri())) {
-                                urisArrayList.add(trackSimplifiedPaging.getItems()[trackRandomNum].getUri());
-                                System.out.println("ADDED: " + trackSimplifiedPaging.getItems()[trackRandomNum].getName());
-                                Thread.sleep(200);
+                                if(!Main.includeInstrumental && !trackSimplifiedPaging.getItems()[trackRandomNum].getName().toLowerCase().contains("instrumental")){
+                                    urisArrayList.add(trackSimplifiedPaging.getItems()[trackRandomNum].getUri());
+                                    System.out.println("ADDED: " + trackSimplifiedPaging.getItems()[trackRandomNum].getName());
+                                    Thread.sleep(200);
+                                }
+                                if(Main.includeInstrumental){
+                                    urisArrayList.add(trackSimplifiedPaging.getItems()[trackRandomNum].getUri());
+                                    System.out.println("ADDED: " + trackSimplifiedPaging.getItems()[trackRandomNum].getName());
+                                    Thread.sleep(200);
+                                }
                             }
                         }
                         uris = new String[urisArrayList.size()];
