@@ -61,15 +61,15 @@ Key features of **Custom Spotify Manager**:
 - Search artists or genres by their name
 - Search top tracks for a given artist
 - Search for all existing genres
-- Find out who are my top artists
-- Find out what are my top songs
+- Find out who are your top artists
+- Find out what are your top songs
+- Create "My top songs" playlist anytime instead of getting one by Spotify at the end of the year
+- Get a playlist filled with your favorite artists
 - Create a playlist filled with random songs from set category playlists
 - Create a playlist with random songs from a list of playlists
 - Create a playlist filled with artists erlated with given genres
 - Create a playlist filled with recommended songs of a genre
 - Look cool
-- More features planned to be added...
-
 </td>
 </tr>
 </table>
