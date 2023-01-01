@@ -204,7 +204,7 @@ The commands are not case sensitive
 
 > 37i9dQZF1DXcF6B6QPhFDv
 
-5. Add it to the **playlistList.txt**
+5. Add it to the **playlistList.txt** and make sure to **SAVE** the file
 <img src="docs/images/playlistList.png" width="400"/>
 
 6. You can add multiple IDs by separating each IDs with new lines
