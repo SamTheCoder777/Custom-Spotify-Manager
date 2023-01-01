@@ -115,7 +115,7 @@ Please follow these steps:
 ![Preview](docs/images/create-an-app.png)
 
 3. In the top right corner, click edit settings
-![Preview](docs/images/edit-settings)
+![Preview](docs/images/edit-settings.png)
 
 4. In the "Redirect URIs" section, write and click add:
 > http://localhost:8080
