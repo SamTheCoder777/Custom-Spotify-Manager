@@ -14,10 +14,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
-/*Outputs a playlist with a given genre
-note: This method outputs a more diverse songs however, they may contain
-songs that you do not like or is
- */
 public class CreateCategoryPlaylist {
     private static CreatePlaylistRequest createPlaylistRequest;
     private static GetCurrentUsersProfileRequest getCurrentUsersProfileRequest;
