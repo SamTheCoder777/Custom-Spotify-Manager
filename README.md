@@ -34,9 +34,11 @@
   - [Prerequisites](#prerequisites)
   - [Usage](#usage)
     - [Running Custom Spotify Manager](#running-custom-spotify-manager)
-    - [Set up the program](#set-up-the-program)
-    - [List of commands](#list-of-commands)
+    - [Set Up the Program](#set-up-the-program)
+    - [List of Commands](#list-of-commands)
 - [Disclaimer](#disclaimer)
+- [Extra Tutorials](#extra-tutorials)
+    - [Create Custom Playlists](#create-custom-playlists)
 - [Contributing](#contributing)
 - [Support](#support)
 - [License](#license)
@@ -107,16 +109,17 @@ java -jar CustomSpotifyManager.jar
 Or in windows, you can run the provided batch file named: runCustomSpotifyManager.bat
 
 
-#### Set up the program
+#### Set Up the Program
 
 Please follow these steps:
 1. Go to spotify developer dashboard ([here](https://developer.spotify.com/dashboard/login)) and log in
 
 2. On the dashboard, click create an app and follow instructions
-![Preview](docs/images/create-an-app.png)
+<img src="docs/images/create-an-app.png" width="400"/>
 
 3. In the top right corner, click edit settings
-![Preview](docs/images/edit-settings.png)
+<img src="docs/images/edit-settings.png" width="400"/>
+
 
 4. In the "Redirect URIs" section, write and click add:
 > http://localhost:8080
@@ -149,7 +152,7 @@ init
 11. Copy and paste the returned url into your browser.
 
 12. Click agree and paste your code into setup.txt:
-![Preview](docs/images/get-code.png)
+<img src="docs/images/get-code.png" width="700"/>
 
 
 
@@ -162,7 +165,7 @@ init
 
 13. Press enter in the program and you are all set!
 
-#### List of commands
+#### List of Commands
 
 The commands are not case sensitive
 
@@ -183,6 +186,31 @@ The commands are not case sensitive
 | Get Recommendations | GetRecommendations                  | Prints out recommended tracks for a given genre                                          |
 | Search Artists            | SearchArtists                  | Searches for the artist with given name                                      |
 | Search Genre          |    SearchGenre               | Prints out genre that starts with given character                              |
+
+## Extra Tutorials
+### Create Custom Playlists
+1. Go to the page of one of playlists you want to get random songs from
+<img src="docs/images/playlist.png" width="400"/>
+
+2. Click on the "three dots"
+
+3. Click on "Copy link to playlist"
+<img src="docs/images/copy-playlist-link.png" width="400"/>
+
+> https://open.spotify.com/playlist/37i9dQZF1DXcF6B6QPhFDv?si=acdd9277122146e5
+
+4. Get the ID from the link
+<img src="docs/images/playlistID.png" width="400"/>
+
+> 37i9dQZF1DXcF6B6QPhFDv
+
+5. Add it to the **playlistList.txt**
+<img src="docs/images/playlistList.png" width="400"/>
+
+6. You can add multiple IDs by separating each IDs with new lines
+<img src="docs/images/example-playlistID.png" width="400"/>
+
+> Do not delete the hyphens in the file or the program may not work as expected
 
 ## Disclaimer
 
