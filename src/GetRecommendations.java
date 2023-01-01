@@ -35,11 +35,10 @@ public class GetRecommendations {
 
     public static Recommendations getRecommendations() {
         getRecommendationsRequest = spotifyApi.getRecommendations()
-                .limit(1)
                 .seed_genres(Main.genre)
                 .build();
         try {
-            final Recommendations recommendations = getRecommendationsRequest.execute();
+            Recommendations recommendations = getRecommendationsRequest.execute();
             return recommendations;
         } catch (IOException | SpotifyWebApiException | ParseException e) {
             System.out.println("Error: " + e.getMessage());

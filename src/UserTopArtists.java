@@ -16,14 +16,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class UserTopArtists {
     private static GetUsersTopArtistsRequest getUsersTopArtistsRequest;
-    private static int offset = 0;
-    private static ArrayList<String> randomArtistId = new ArrayList<String>();
-    private static ArrayList<String> urisArrayList = new ArrayList<String>();
-    private static int index = 1;
+    private static int offset;
+    private static ArrayList<String> randomArtistId;
+    private static ArrayList<String> urisArrayList;
 
 
     public static void getUsersTopArtists() {
         try {
+
                 getUsersTopArtistsRequest = Main.spotifyApi.getUsersTopArtists()
                         .limit(Main.limit)
                         .build();
@@ -44,6 +44,10 @@ public class UserTopArtists {
     public static void createUsersTopArtistsPlaylist(){
 
         try {
+            randomArtistId = new ArrayList<String>();
+            urisArrayList = new ArrayList<String>();
+            offset = 0;
+
            GetCurrentUsersProfileRequest getCurrentUsersProfileRequest = Main.spotifyApi.getCurrentUsersProfile()
                     .build();
 
@@ -58,7 +62,7 @@ public class UserTopArtists {
                     .limit(50)
                     .build()
                     .execute();
-            for(int i = 0; i < artistPaging.getItems().length; i++){
+            for(int i = 0; i < Main.numArtists; i++){
                 randomArtistId.add(artistPaging.getItems()[i].getId());
             }
             Collections.shuffle(randomArtistId);

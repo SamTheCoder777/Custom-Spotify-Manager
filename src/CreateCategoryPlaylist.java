@@ -28,12 +28,15 @@ public class CreateCategoryPlaylist {
     private static String playlistId;
     private static String[] uris;
     private static int[] randomNumbers;
-    private static int[] alreadyUsed;
     private static int[] randomPlaylistNumbers;
     private static ArrayList<Integer> setRandom = new ArrayList<Integer>();
 
     static ArrayList<String> urisList = new ArrayList<String>();
 
+    public static void reset(){
+        setRandom = new ArrayList<Integer>();
+        urisList = new ArrayList<String>();
+    }
     public static void createPlaylist() {
         try {
             getCurrentUsersProfileRequest = Main.spotifyApi.getCurrentUsersProfile()
@@ -79,20 +82,23 @@ public class CreateCategoryPlaylist {
                     randomNumbers[i] = setRandom.get(i);
                 }
 
+                Paging<PlaylistTrack> playlistSimplifiedPaging1 = getPlaylistsItemsRequest.execute();
+
                 for (int x = 0; x < Main.limit; x++) {
-                    Paging<PlaylistTrack> playlistSimplifiedPaging1 = getPlaylistsItemsRequest.execute();
                         if (playlistSimplifiedPaging1.getItems()[randomNumbers[x]].getTrack().getType().toString().equals("TRACK")
                                 && !urisList.contains(playlistSimplifiedPaging1.getItems()[randomNumbers[x]].getTrack().getUri())) {
                             urisList.add(playlistSimplifiedPaging1.getItems()[randomNumbers[x]].getTrack().getUri());
                             System.out.println("ADDED: " + playlistSimplifiedPaging1.getItems()[randomNumbers[x]].getTrack().getName());
+                            Thread.sleep(200);
                         }else{
                             Recommendations rec = GetRecommendations.getRecommendations();
 
-                            while(!urisList.contains(rec.getTracks()[0].getUri())){
+                            while(urisList.contains(rec.getTracks()[0].getUri())){
                                 rec = GetRecommendations.getRecommendations();
                             }
                             urisList.add(rec.getTracks()[0].getUri());
-                            System.out.println("ADDED: " + rec.getTracks()[0].getUri());
+                            System.out.println("ADDED: " + rec.getTracks()[0].getName());
+                            Thread.sleep(200);
                         }
                 }
 
@@ -106,8 +112,9 @@ public class CreateCategoryPlaylist {
                 SnapshotResult snapshotResult = addItemsToPlaylistRequest.execute();
             }
             System.out.println("-----------DONE-----------");
+            System.out.println("Spotify url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
 
-        }catch (ParseException | SpotifyWebApiException | IOException e) {
+        }catch (InterruptedException | ParseException | SpotifyWebApiException | IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -115,6 +122,7 @@ public class CreateCategoryPlaylist {
 
 
     public static void execute() {
+        reset();
         System.out.println("This might take some time...\nGo grab a coffee or something while im working...");
         createPlaylist();
         addSongs();

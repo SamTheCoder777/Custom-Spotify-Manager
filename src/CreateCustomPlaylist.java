@@ -67,7 +67,6 @@ public class CreateCustomPlaylist {
 
                 playlists.add(getPlaylistRequest.execute());
             }
-
         } catch (SpotifyWebApiException | ParseException | IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -99,7 +98,7 @@ public class CreateCustomPlaylist {
                     }else if (!(Main.genre.length()==0)){
                         Recommendations rec = GetRecommendations.getRecommendations();
 
-                        while(!urisList.contains(rec.getTracks()[0].getUri())){
+                        while(urisList.contains(rec.getTracks()[0].getUri())){
                             rec = GetRecommendations.getRecommendations();
                         }
                         urisList.add(rec.getTracks()[0].getUri());
@@ -121,6 +120,8 @@ public class CreateCustomPlaylist {
 
         }catch (ParseException | SpotifyWebApiException | IOException e) {
             System.out.println("Error: " + e.getMessage());
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("Error: " + e.getMessage()+"\nHint: is playlistList.txt empty?");
         }
 
     }

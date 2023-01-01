@@ -32,10 +32,20 @@ public class CreateExploreArtistsPlaylist {
     private static SnapshotResult snapshotResult;
     private static Playlist playlist;
     private static ArrayList<String> alreadyUsedArtistId = new ArrayList<String>();
-    public static void execute(){
 
+    public static void reset(){
+        artistIDs = new String[200];
+        offset = 0;
+        index = 0;
+        q = "genre:";
+        setRandom = new ArrayList<Integer>();
+        randoms = new int[Main.numArtists];
+        urisArrayList = new ArrayList<String>();
+        alreadyUsedArtistId = new ArrayList<String>();
+    }
+    public static void execute(){
+        reset();
         try {
-            q="genre:";
             q += Main.genre;
                        getCurrentUsersProfileRequest = Main.spotifyApi.getCurrentUsersProfile()
                     .build();
@@ -120,7 +130,5 @@ public class CreateExploreArtistsPlaylist {
         }
         System.out.println("-----------DONE-----------");
         System.out.println("Spotify url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
-        q = "genre:";
-
     }
 }
