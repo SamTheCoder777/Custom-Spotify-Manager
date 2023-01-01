@@ -100,7 +100,7 @@ Then download the most recent release.
 After downloading the program, in the program directory:
 
 ```sh
-java -jar customSpotifyManager.jar
+java -jar CustomSpotifyManager.jar
 ```
 
 Or in windows, you can run the provided batch file named: runCustomSpotifyManager.bat
