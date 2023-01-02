@@ -43,6 +43,7 @@
 - [Extra Tutorials](#extra-tutorials)
     - [Create Custom Playlists](#create-custom-playlists)
 - [Disclaimer](#disclaimer)
+- [FAQ](#faq)
 - [Contributing](#contributing)
 - [Support](#support)
 - [License](#license)
@@ -82,6 +83,7 @@ Key features of **Custom Spotify Manager**:
 
 - [Spotify API](https://developer.spotify.com/documentation/web-api/)
 - [Spotify Web API Java](https://github.com/spotify-web-api-java/spotify-web-api-java)
+- [Jansi](https://github.com/fusesource/jansi)
 
 ## Getting Started
 
@@ -188,7 +190,7 @@ The commands are not case sensitive
 | Create Explore Artists Playlist| Create Explore Artists Playlist     | Create playlists filled with artists related with given genre                       |
 | Create Playlist        | CreatePlaylist       | Creates playlist with given name                                                   |
 | Create Recommended Playlist              | CreateRecommendedPlaylist                  | Creates playlist filled with recommended songs for a given genre     |
-| Get Artist Top Tracks  | GetArtistTopTracks                  | Prints out top tracks for a given artist                                      |
+| Get Artist's Top Tracks  | GetArtistsTopTracks                  | Prints out top tracks for a given artist                                      |
 | Get Category List               | GetCategoryList          | Prints out list of categories available          |
 | Get Genre List             | GetGenreList                  | Prints out whole list for all available genres                                       |
 | Get My Top Artists                | GetMyTopArtists            | Prints out the user's most played artists and you can add songs by these artists to a playlist                                             |
@@ -226,6 +228,12 @@ The commands are not case sensitive
 
 Command **"CreateCategoryPlaylist"** may not work consistently due to Spotify not supporting some category playlists in some countries or offers very limited amount of category playlists. If it does not work as expected, please use **"CreateCustomPlaylist"** instead by adding the ID of the playlists you wanted to get random songs from in **playlistList.txt**
 
+## FAQ
+
+**Language characters are shown as question marks in the command prompt**
+
+Change your cmd to UTF-8 format. Here is a good place to start [Link](https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8)
+
 ## Contributing
 
 First off, thanks for taking the time to contribute! Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
@@ -255,6 +263,7 @@ Thanks for these awesome resources that were used during the development of the 
 
 - <https://github.com/dec0dOS/amazing-github-template>
 - <https://github.com/spotify-web-api-java/spotify-web-api-java>
+- <https://github.com/fusesource/jansi>
 - <https://github.com/MichaelCurrin/badge-generator>
 - <https://developer.spotify.com/documentation/web-api/>
 - <https://developer.spotify.com/console/>
