@@ -33,6 +33,7 @@ public class Main {
                     File myObj = new File("setup.txt");
                     Scanner reader = new Scanner(myObj);
                     String data;
+
                     while(reader.hasNextLine()){
                         data = reader.nextLine();
                         if(data.startsWith("clientID=")){
