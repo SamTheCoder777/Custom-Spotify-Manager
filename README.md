@@ -86,7 +86,7 @@ Key features of **Custom Spotify Manager**:
 
 ### Prerequisites
 
-Make sure you have the Java 17 or higher installed.
+Make sure you have the Java 17.0.5 or higher installed.
 
 You can easily run this program in Windows command list.
 > This program is not tested on other operating systems.
