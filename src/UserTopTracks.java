@@ -11,25 +11,31 @@ import se.michaelthelin.spotify.requests.data.users_profile.GetCurrentUsersProfi
 
 import java.io.IOException;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class UserTopTracks {
     private static final SpotifyApi spotifyApi = Main.spotifyApi;
-    private static final GetUsersTopTracksRequest getUsersTopTracksRequest = spotifyApi.getUsersTopTracks()
-            .limit(Main.limit)
-            .build();
-    private static Track[] tracks = new Track[Main.limit];
+    private static GetUsersTopTracksRequest getUsersTopTracksRequest;
+    private static Track[] tracks;
 
     public static void execute() {
+        tracks = new Track[Main.limit];
+
+        getUsersTopTracksRequest = spotifyApi.getUsersTopTracks()
+                .limit(Main.limit)
+                .build();
+
         try {
-            final Paging<Track> trackPaging = getUsersTopTracksRequest.execute();
+            Paging<Track> trackPaging = getUsersTopTracksRequest.execute();
             tracks = trackPaging.getItems();
             for(int i = 0; i < tracks.length; i++ ){
-                System.out.print((i+1) + ": " + tracks[i].getName());
-                System.out.printf(" (%d:%02d)", ((tracks[i].getDurationMs() / 1000) / 60), (tracks[i].getDurationMs() / 1000) % 60);
-                System.out.print(" (popularity: " + tracks[i].getPopularity() + ")");
+                System.out.print(ansi().render("@|green "+ (i+1) +  ": |@") + tracks[i].getName()+" ");
+                System.out.printf(ansi().render("@|green (%d:%02d) |@").toString(), ((tracks[i].getDurationMs() / 1000) / 60), (tracks[i].getDurationMs() / 1000) % 60);
+                System.out.print(ansi().render("@|yellow (popularity: " + tracks[i].getPopularity() + ") |@"));
                 System.out.println(" ("+tracks[i].getExternalUrls().getExternalUrls().get("spotify")+")");
             }
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 
@@ -55,12 +61,12 @@ public class UserTopTracks {
                     .build()
                     .execute();
 
-            System.out.println("-----------DONE-----------");
-            System.out.println("Playlist url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
+            System.out.println(ansi().render("@|green -----------DONE-----------|@"));
+            System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
         }
         catch(IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 }

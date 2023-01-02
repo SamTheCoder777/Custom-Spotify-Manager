@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class CreateExploreArtistsPlaylist {
     private static String[] artistIDs = new String[200];
     private static int offset = 0;
@@ -126,9 +128,9 @@ public class CreateExploreArtistsPlaylist {
                     }
             }
         } catch (InterruptedException|ParseException|SpotifyWebApiException|IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
-        System.out.println("-----------DONE-----------");
-        System.out.println("Spotify url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
+        System.out.println(ansi().render("@|green -----------DONE-----------|@"));
+        System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
     }
 }

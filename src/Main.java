@@ -8,6 +8,10 @@ import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.Scanner;
 
+import org.fusesource.jansi.AnsiConsole;
+
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class Main {
     public static String token;
     public static String clientID;
@@ -26,6 +30,7 @@ public class Main {
     public static void main(String[] args){
 
         try{
+            AnsiConsole.systemInstall();
             String user = "";
 
             while(!user.equalsIgnoreCase("q")){
@@ -43,7 +48,7 @@ public class Main {
                         }
                     }
                 } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
                 }
 
                 spotifyApi = new SpotifyApi.Builder()
@@ -62,7 +67,7 @@ public class Main {
                 Scanner input = new Scanner(System.in);
                 Scanner input2 = new Scanner(System.in);
 
-                System.out.println("Enter command (q to exit): ");
+                System.out.println(ansi().render("@|green Enter command (q to exit): |@"));
                 user = input2.nextLine();
                 switch (user.toLowerCase().trim()){
                     case "init":
@@ -76,34 +81,38 @@ public class Main {
 
                     case "searchartists":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Enter name you want to search");
+                        System.out.println(ansi().render("@|green Enter name you want to search|@"));
                         name = input.nextLine();
+                        System.out.println();
                         GetSearchArtists searching = new GetSearchArtists(spotifyApi, name);
                         System.out.println(searching);
                         System.out.println();
                         break;
 
-                    case "getartisttoptracks":
+                    case "getartiststoptracks":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Enter name you want to search");
+                        System.out.println(ansi().render("@|green Enter name you want to search|@"));
                         name = input.nextLine();
-                        GetArtistsTopTracks top = new GetArtistsTopTracks(spotifyApi, name, CountryCode.NA);
+                        GetArtistsTopTracks top = new GetArtistsTopTracks(spotifyApi, name, CountryCode.US);
+                        System.out.println();
                         top.execute();
                         System.out.println();
                         break;
 
                     case "getrecommendations":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Enter the genre you want");
+                        System.out.println(ansi().render("@|green Enter the genre you want|@"));
                         genre = input.nextLine();
-                        System.out.println("Enter how many recommendations you want");
+                        System.out.println(ansi().render("@|green Enter how many recommendations you want|@"));
                         limit = input.nextInt();
+                        System.out.println();
                         GetRecommendations.execute();
                         System.out.println();
                         break;
 
                     case "getgenrelist":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
+                        System.out.println();
                         GetSeedGenreList.execute();
                         System.out.println();
                         break;
@@ -116,22 +125,24 @@ public class Main {
 
                     case "getmytopartists":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("How many top artists would you like to see?");
+                        System.out.println(ansi().render("@|green How many top artists would you like to see?|@"));
                         limit = input.nextInt();
+                        System.out.println();
                         UserTopArtists.getUsersTopArtists();
                         System.out.println();
-                        System.out.println("Would you like to create a playlist filled with above artists? (y or n)");
+                        System.out.println(ansi().render("@|green Would you like to create a playlist filled with above artists? |@@|yellow (y or n)|@"));
                         user = input.next();
                         if(user.equalsIgnoreCase("y")){
                             input.nextLine();
-                            System.out.println("Name of the playlist:");
+                            System.out.println(ansi().render("@|green Name of the playlist:|@"));
                             name = input.nextLine();
-                            System.out.println("How many artists (randomized) should be included in the playlist?");
+                            System.out.println(ansi().render("@|green How many artists (randomized) should be included in the playlist?|@"));
                             numArtists = input.nextInt();
-                            System.out.println("How many songs per artists?");
+                            System.out.println(ansi().render("@|green How many songs per artists?|@"));
                             limit = input.nextInt();
-                            System.out.println("Include instrumental? (y or n)");
+                            System.out.println(ansi().render("@|green Include instrumental? |@@|yellow (y or n)|@"));
                             includeInstrumental = input.next().equalsIgnoreCase("y");
+                            System.out.println();
                             UserTopArtists.createUsersTopArtistsPlaylist();
                         }
                         System.out.println();
@@ -139,15 +150,17 @@ public class Main {
 
                     case "getmytoptracks":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("How many tracks would you like to see?");
+                        System.out.println(ansi().render("@|green How many tracks would you like to see?|@"));
                         limit = input.nextInt();
+                        System.out.println();
                         UserTopTracks.execute();
                         System.out.println();
-                        System.out.println("Would you like to add the songs into a playlist? (y or n)");
+                        System.out.println(ansi().render("@|green Would you like to add the songs into a playlist? |@@|yellow (y or n)|@"));
                         if(input.next().equalsIgnoreCase("y")){
                             input.nextLine();
-                            System.out.println("Name of the playlist:");
+                            System.out.println(ansi().render("@|green Name of the playlist:|@"));
                             name = input.nextLine();
+                            System.out.println();
                             UserTopTracks.createUserTopTrackPlaylist();
                         }
                         System.out.println();
@@ -156,38 +169,42 @@ public class Main {
 
                     case "createplaylist":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Name of the playlist:");
+                        System.out.println(ansi().render("@|green Name of the playlist:|@"));
                         name = input.nextLine();
+                        System.out.println();
                         CreatePlaylist.execute();
+                        System.out.println();
                         break;
 
                     case "createcategoryplaylist":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Category you want:");
+                        System.out.println(ansi().render("@|green Category you want:|@"));
                         category = input.nextLine();
-                        System.out.println("Genre preference (in case there are duplicates):");
+                        System.out.println(ansi().render("@|green Genre preference (in case there are duplicates):|@"));
                         genre = input.nextLine();
-                        System.out.println("Name of the playlist:");
+                        System.out.println(ansi().render("@|green Name of the playlist:|@"));
                         name = input.nextLine();
-                        System.out.println("How many playlists to search? (Total # of songs = [# of playlists] X [# of songs per playlist])");
+                        System.out.println(ansi().render("@|green How many playlists to search?|@ @|yellow (Total # of songs = [# of playlists] X [# of songs per playlist])|@"));
                         numPlaylists = input.nextInt();
-                        System.out.println("How many songs per playlist? (Total # of songs = [# of playlists] X [# of songs per playlists])");
+                        System.out.println(ansi().render("@|green How many songs per playlist?|@ @|yellow (Total # of songs = [# of playlists] X [# of songs per playlist])|@"));
                         limit = input.nextInt();
+                        System.out.println();
                         CreateCategoryPlaylist.execute();
                         System.out.println();
                         break;
 
                     case "createcustomplaylist":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Genre preference (in case there are duplicates. Press enter to skip):");
+                        System.out.println(ansi().render("@|green Genre preference|@ @|yellow (This is for in case there are duplicates. Press enter to skip):|@"));
                         genre = input.nextLine();
-                        System.out.println("Name of the playlist:");
+                        System.out.println(ansi().render("@|green Name of the playlist:|@"));
                         name = input.nextLine();
-                        System.out.println("How many playlists to search? " +
-                                "\n(Current number playlists in the file: " + CreateCustomPlaylist.playlistNumbers()+")");
+                        System.out.println(ansi().render("@|green How many playlists to search? |@" +
+                                "\n@|yellow (Current number playlists in the file: " + CreateCustomPlaylist.playlistNumbers()+")|@"));
                         numPlaylists = input.nextInt();
-                        System.out.println("How many songs per playlist [Max: 100]? (Total # of songs = [# of playlists] X [# of songs per playlists])");
+                        System.out.println(ansi().render("@|green How many songs per playlist|@ @|yellow [Max: 100]|@@|green ?|@ @|yellow (Total # of songs = [# of playlists] X [# of songs per playlists])|@"));
                         limit = input.nextInt();
+                        System.out.println();
                         CreateCustomPlaylist.execute();
                         System.out.println();
                         break;
@@ -195,10 +212,11 @@ public class Main {
 
                     case "createrecommendedplaylist":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("Genre you want:");
+                        System.out.println(ansi().render("@|green Genre you want:|@"));
                         genre = input.nextLine();
-                        System.out.println("Name of the playlist:");
+                        System.out.println(ansi().render("@|green Name of the playlist:|@"));
                         name = input.nextLine();
+                        System.out.println();
                         CreateRecommendedPlaylist.execute();
                         System.out.println();
                         break;
@@ -211,16 +229,17 @@ public class Main {
 
                     case "createexploreartistsplaylist":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("What genre?");
+                        System.out.println(ansi().render("@|green What genre?|@"));
                         genre = input.nextLine();
-                        System.out.println("Name of the playlist?");
+                        System.out.println(ansi().render("@|green Name of the playlist?|@"));
                         name = input.nextLine();
-                        System.out.println("How many artists?");
+                        System.out.println(ansi().render("@|green How many artists?|@"));
                         numArtists = input.nextInt();
-                        System.out.println("How many songs per artist?");
+                        System.out.println(ansi().render("@|green How many songs per artist?|@"));
                         limit = input.nextInt();
-                        System.out.println("Include instrumental? (y or n)");
+                        System.out.println(ansi().render("@|green Include instrumental?|@ @|yellow (y or n)|@"));
                         includeInstrumental = input.next().equalsIgnoreCase("y");
+                        System.out.println();
                         CreateExploreArtistsPlaylist.execute();
                         System.out.println();
                         break;
@@ -237,7 +256,7 @@ public class Main {
                         System.out.println("CreatePlaylist: Creates playlist with given name");
                         System.out.println("CreateRecommendedPlaylist: Creates playlist filled with recommended songs for a given genre");
                         System.out.println();
-                        System.out.println("GetArtistTopTracks: Prints out top tracks for a given artist");
+                        System.out.println("GetArtistsTopTracks: Prints out top tracks for a given artist");
                         System.out.println("GetCategoryList: Prints out list of categories available");
                         System.out.println("GetGenreList: Prints out whole list for all available genres");
                         System.out.println("GetMyTopArtists: Prints out the user's most played artists");
@@ -252,17 +271,17 @@ public class Main {
                     default:
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
                         if(!user.equalsIgnoreCase("q")){
-                            System.out.println("Command: " + user + " does not exist.\nType \"help\" to get list of commands");
+                            System.out.println(ansi().render("@|red Command: |@" + user + "@|red  does not exist.\nType \"help\" to get list of commands|@"));
                             System.out.println();
                         }else{
-                            System.out.println("Terminating...");
+                            System.out.println(ansi().render("@|red Terminating...|@"));
                         }
                         break;
                 }
         }
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
             System.out.println();
         }
     }

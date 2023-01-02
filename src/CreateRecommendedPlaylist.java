@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 
 public class CreateRecommendedPlaylist {
     private static GetCurrentUsersProfileRequest getCurrentUsersProfileRequest;
@@ -33,7 +35,7 @@ public class CreateRecommendedPlaylist {
             playlistId = playlist.getId();
 
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage() + "\nTIP: make sure your genre exists!");
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nTIP: make sure your genre exists!|@"));
         }
     }
 
@@ -48,15 +50,15 @@ public class CreateRecommendedPlaylist {
                 .build();
         try {
             addItemsToPlaylistRequest.execute();
-            System.out.println("-----------DONE-----------");
-            System.out.println("Playlist url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
+            System.out.println(ansi().render("@|green -----------DONE-----------|@"));
+            System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            throw new RuntimeException(e);
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
 
     }
     public static void execute(){
-        System.out.println("This might take some time...\nGo grab a coffee or something while im working...");
+        System.out.println(ansi().render("@|yellow This might take some time...\nGo grab a coffee or something while im working...|@"));
         createPlaylist();
         addSongs();
     }

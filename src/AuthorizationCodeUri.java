@@ -3,11 +3,10 @@ import se.michaelthelin.spotify.requests.authorization.authorization_code.Author
 import java.awt.*;
 import java.io.*;
 import java.net.*;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+
+import static org.fusesource.jansi.Ansi.ansi;
 
 public class AuthorizationCodeUri {
     private static final AuthorizationCodeUriRequest authorizationCodeUriRequest = Main.spotifyApi.authorizationCodeUri()
@@ -25,7 +24,7 @@ public class AuthorizationCodeUri {
                 Desktop.getDesktop().browse(uri);
             }
 
-            System.out.println("If a browser does not pop up, please copy and paste this link into your browser:");
+            System.out.println(ansi().render("@|yellow If a browser does not pop up, please copy and paste this link into your browser:|@"));
             System.out.println(uri.toURL());
             System.out.println();
 
@@ -68,7 +67,7 @@ public class AuthorizationCodeUri {
             AuthorizationCodeRefresh.init();
             AuthorizationCodeRefresh.execute();
 
-        }catch(Exception e){System.out.println(e);}
+        }catch(Exception e){System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));}
 
 
 

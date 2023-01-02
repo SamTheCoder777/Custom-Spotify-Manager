@@ -11,12 +11,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class GetCategoryPlaylist {
     private static GetListOfCategoriesRequest getListOfCategoriesRequest;
     private static GetCategorysPlaylistsRequest getCategoryRequest;
 
     private static Paging<PlaylistSimplified> playlistSimplifiedPaging;
-    public static int offset = 0;
+    public static int offset;
 
 
 
@@ -31,13 +33,14 @@ public class GetCategoryPlaylist {
             playlistSimplifiedPaging = getCategoryRequest.execute();
             return playlistSimplifiedPaging;
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
             return null;
         }
     }
 
     public static void printCategoryList(){
         try {
+            offset = 0;
             boolean isListComplete = false;
             ArrayList<String> categories = new ArrayList<String>();
             while(!isListComplete){
@@ -60,7 +63,7 @@ public class GetCategoryPlaylist {
                 System.out.println(s);
             }
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 

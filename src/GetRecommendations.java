@@ -6,6 +6,8 @@ import se.michaelthelin.spotify.requests.data.browse.GetRecommendationsRequest;
 
 import java.io.IOException;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class GetRecommendations {
     private static final SpotifyApi spotifyApi = Main.spotifyApi;
     private int limit;
@@ -21,15 +23,14 @@ public class GetRecommendations {
         try {
             final Recommendations recommendations = getRecommendationsRequest.execute();
             for(int i = 0; i < recommendations.getTracks().length; i++){
-                System.out.print(i + ": " + recommendations.getTracks()[i].getName());
-                System.out.printf(" (%d:%02d)", ((recommendations.getTracks()[i].getDurationMs() / 1000) / 60),
+                System.out.print(ansi().render("@|green "+ (i+1) +  ": |@") + recommendations.getTracks()[i].getName());
+                System.out.printf(ansi().render("@|green (%d:%02d) |@").toString(), ((recommendations.getTracks()[i].getDurationMs() / 1000) / 60),
                         (recommendations.getTracks()[i].getDurationMs() / 1000) % 60);
-                System.out.print(" ("+recommendations.getTracks()[i].getExternalUrls().getExternalUrls().get("spotify")+")");
+                System.out.print(ansi().render("@|yellow ("+recommendations.getTracks()[i].getExternalUrls().getExternalUrls().get("spotify")+")|@"));
                 System.out.println();
             }
-            System.out.println("Length: " + recommendations.getTracks().length);
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 
@@ -41,7 +42,7 @@ public class GetRecommendations {
             Recommendations recommendations = getRecommendationsRequest.execute();
             return recommendations;
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
             return null;
         }
     }
@@ -55,7 +56,7 @@ public class GetRecommendations {
             final Recommendations recommendations = getRecommendationsRequest.execute();
             return recommendations;
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
             return null;
         }
     }

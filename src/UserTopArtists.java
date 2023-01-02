@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class UserTopArtists {
     private static GetUsersTopArtistsRequest getUsersTopArtistsRequest;
     private static int offset;
@@ -37,7 +39,7 @@ public class UserTopArtists {
 
 
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 
@@ -110,12 +112,12 @@ public class UserTopArtists {
                     }
                 }
 
-            System.out.println("-----------DONE-----------");
-            System.out.println("Playlist url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
+            System.out.println(ansi().render("@|green -----------DONE-----------|@"));
+            System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
 
         }catch(InterruptedException|IOException | SpotifyWebApiException | ParseException e) {
-             System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 }
