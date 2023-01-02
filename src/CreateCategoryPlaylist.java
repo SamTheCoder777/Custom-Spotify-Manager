@@ -2,7 +2,6 @@ import org.apache.hc.core5.http.ParseException;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import se.michaelthelin.spotify.model_objects.special.SnapshotResult;
 import se.michaelthelin.spotify.model_objects.specification.*;
-import se.michaelthelin.spotify.requests.data.artists.GetArtistRequest;
 import se.michaelthelin.spotify.requests.data.playlists.AddItemsToPlaylistRequest;
 import se.michaelthelin.spotify.requests.data.playlists.CreatePlaylistRequest;
 import se.michaelthelin.spotify.requests.data.playlists.GetPlaylistsItemsRequest;
@@ -10,9 +9,9 @@ import se.michaelthelin.spotify.requests.data.users_profile.GetCurrentUsersProfi
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.concurrent.ThreadLocalRandom;
+
+import static org.fusesource.jansi.Ansi.ansi;
 
 public class CreateCategoryPlaylist {
     private static CreatePlaylistRequest createPlaylistRequest;
@@ -46,7 +45,7 @@ public class CreateCategoryPlaylist {
             playlistId = playlist.getId();
 
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage() + "\nTIP: make sure your genre exists!");
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nTIP: make sure your genre exists!|@"));
         }
     }
 
@@ -107,11 +106,11 @@ public class CreateCategoryPlaylist {
                         .build();
                 SnapshotResult snapshotResult = addItemsToPlaylistRequest.execute();
             }
-            System.out.println("-----------DONE-----------");
-            System.out.println("Spotify url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
+            System.out.println(ansi().render("@|green -----------DONE-----------|@"));
+            System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
         }catch (InterruptedException | ParseException | SpotifyWebApiException | IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
 
     }
@@ -119,7 +118,7 @@ public class CreateCategoryPlaylist {
 
     public static void execute() {
         reset();
-        System.out.println("This might take some time...\nGo grab a coffee or something while im working...");
+        System.out.println(ansi().render("@|yellow This might take some time...\nGo grab a coffee or something while im working...|@"));
         createPlaylist();
         addSongs();
     }

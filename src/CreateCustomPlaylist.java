@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class CreateCustomPlaylist {
     private static ArrayList<String> playlistArrayList = new ArrayList<String>();
 
@@ -46,7 +48,7 @@ public class CreateCustomPlaylist {
             playlistId = playlist.getId();
 
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage() + "\nTIP: make sure your genre exists!");
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nTIP: make sure your genre exists!|@"));
         }
     }
 
@@ -68,7 +70,7 @@ public class CreateCustomPlaylist {
                 playlists.add(getPlaylistRequest.execute());
             }
         } catch (SpotifyWebApiException | ParseException | IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
     public static void addSongs() {
@@ -115,13 +117,14 @@ public class CreateCustomPlaylist {
                         .build();
                 addItemsToPlaylistRequest.execute();
             }
-            System.out.println("-----------DONE-----------");
-            System.out.println("Playlist url: " + playlist.getExternalUrls().getExternalUrls().get("spotify"));
+            playlists.clear();
+            System.out.println(ansi().render("@|green -----------DONE-----------|@"));
+            System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
         }catch (ParseException | SpotifyWebApiException | IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }catch (IndexOutOfBoundsException e){
-            System.out.println("Error: " + e.getMessage()+"\nHint: is playlistList.txt empty?");
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nHint: is playlistList.txt empty?|@"));
         }
 
     }
@@ -140,14 +143,14 @@ public class CreateCustomPlaylist {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
         return lineNum;
     }
 
 
     public static void execute() {
-        System.out.println("This might take some time...\nGo grab a coffee or something while im working...");
+        System.out.println(ansi().render("@|yellow This might take some time...\nGo grab a coffee or something while im working...|@"));
         init();
         createPlaylist();
         addSongs();

@@ -7,6 +7,8 @@ import org.apache.hc.core5.http.ParseException;
 
 import java.io.IOException;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class GetSearchArtists {
     private static SearchArtistsRequest searchArtistsRequest;
     Paging<Artist> artistPagingToReturn;
@@ -21,7 +23,7 @@ public class GetSearchArtists {
 
     public String searchArtists_Sync() {
         try {
-            int counter = 0;
+            int counter = 1;
             String a = "";
             final Paging<Artist> artistPaging = searchArtistsRequest.execute();
 
@@ -34,7 +36,8 @@ public class GetSearchArtists {
             }
             return a;
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            return("Error: " + e.getMessage()+"\n");
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+            return null;
         }
     }
 

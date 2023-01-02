@@ -34,6 +34,7 @@
 - [About](#about)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
+  - [Downloading Windows Terminal (Optional)](#downloading-windows-terminal-optional)
   - [Prerequisites](#prerequisites)
   - [Usage](#usage)
     - [Running Custom Spotify Manager](#running-custom-spotify-manager)
@@ -84,9 +85,16 @@ Key features of **Custom Spotify Manager**:
 
 ## Getting Started
 
+### Downloading Windows Terminal (Optional)
+
+You can download a better version of **Windows Command Prompt** called **Windows Terminal**
+([download link](https://www.microsoft.com/store/apps/9n0dx20hk701))
+
+You will be able to click links and characters will not be broken
+
 ### Prerequisites
 
-Make sure you have the Java 17 or higher installed.
+Make sure you have the Java 17.0.5 or higher installed.
 
 You can easily run this program in Windows command list.
 > This program is not tested on other operating systems.
@@ -97,7 +105,6 @@ You can verify your java version in CMD with:
 java -version
 ```
 
-Then download the most recent release.
 
 ### Usage
 
@@ -181,7 +188,7 @@ The commands are not case sensitive
 | Create Explore Artists Playlist| Create Explore Artists Playlist     | Create playlists filled with artists related with given genre                       |
 | Create Playlist        | CreatePlaylist       | Creates playlist with given name                                                   |
 | Create Recommended Playlist              | CreateRecommendedPlaylist                  | Creates playlist filled with recommended songs for a given genre     |
-| Get Artist Top Tracks  | GetArtistTopTracks                  | Prints out top tracks for a given artist                                      |
+| Get Artist's Top Tracks  | GetArtistsTopTracks                  | Prints out top tracks for a given artist                                      |
 | Get Category List               | GetCategoryList          | Prints out list of categories available          |
 | Get Genre List             | GetGenreList                  | Prints out whole list for all available genres                                       |
 | Get My Top Artists                | GetMyTopArtists            | Prints out the user's most played artists and you can add songs by these artists to a playlist                                             |

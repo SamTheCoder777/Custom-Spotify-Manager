@@ -7,8 +7,9 @@ import se.michaelthelin.spotify.requests.authorization.authorization_code.Author
 import java.awt.*;
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Scanner;
+
+import static org.fusesource.jansi.Ansi.ansi;
 
 public class AuthorizationCodeRefresh {
     private static String code = "";
@@ -42,7 +43,7 @@ public class AuthorizationCodeRefresh {
             // Set access and refresh token for further "spotifyApi" object usage
             Main.spotifyApi.setAccessToken(authorizationCodeCredentials.getAccessToken());
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 
@@ -58,13 +59,13 @@ public class AuthorizationCodeRefresh {
                 PrintWriter output = new PrintWriter(myObj);
                 output.print(authorizationCodeCredentials.getRefreshToken());
                 output.close();
-                System.out.println("Success\n");
+                System.out.println(ansi().render("@|green Success|@\n"));
 
                 if (Desktop.isDesktopSupported()) {
                     Desktop.getDesktop().browse(new URI("https://github.com/SamTheCoder777/Custom-Spotify-Manager#list-of-commands"));
                 }
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 

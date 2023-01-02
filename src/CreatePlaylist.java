@@ -6,6 +6,8 @@ import se.michaelthelin.spotify.requests.data.users_profile.GetCurrentUsersProfi
 
 import java.io.IOException;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class CreatePlaylist {
     private static CreatePlaylistRequest createPlaylistRequest;
     private static GetCurrentUsersProfileRequest getCurrentUsersProfileRequest;
@@ -21,9 +23,9 @@ public class CreatePlaylist {
 
             Playlist playlist = createPlaylistRequest.execute();
 
-            System.out.println("Name: " + playlist.getName());
+            System.out.println(ansi().render("@|green Name: |@" + playlist.getName()));
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 

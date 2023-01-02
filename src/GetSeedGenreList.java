@@ -8,6 +8,8 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class GetSeedGenreList {
     private static final GetAvailableGenreSeedsRequest getAvailableGenreSeedsRequest = Main.spotifyApi.getAvailableGenreSeeds()
             .build();
@@ -20,7 +22,7 @@ public class GetSeedGenreList {
                 System.out.println(string);
             }
         } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
         }
     }
 
