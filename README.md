@@ -84,6 +84,13 @@ Key features of **Custom Spotify Manager**:
 
 ## Getting Started
 
+### Downloading Windows Terminal (Optional)
+
+You can download a better version of **Windows Command Prompt** called **Windows Terminal**
+([download link](https://www.microsoft.com/store/apps/9n0dx20hk701))
+
+You will be able to click links and characters will not be broken
+
 ### Prerequisites
 
 Make sure you have the Java 17.0.5 or higher installed.
@@ -97,7 +104,6 @@ You can verify your java version in CMD with:
 java -version
 ```
 
-Then download the most recent release.
 
 ### Usage
 
