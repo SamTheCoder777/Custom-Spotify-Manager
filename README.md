@@ -188,7 +188,7 @@ The commands are not case sensitive
 | Create Explore Artists Playlist| Create Explore Artists Playlist     | Create playlists filled with artists related with given genre                       |
 | Create Playlist        | CreatePlaylist       | Creates playlist with given name                                                   |
 | Create Recommended Playlist              | CreateRecommendedPlaylist                  | Creates playlist filled with recommended songs for a given genre     |
-| Get Artist Top Tracks  | GetArtistTopTracks                  | Prints out top tracks for a given artist                                      |
+| Get Artist's Top Tracks  | GetArtistsTopTracks                  | Prints out top tracks for a given artist                                      |
 | Get Category List               | GetCategoryList          | Prints out list of categories available          |
 | Get Genre List             | GetGenreList                  | Prints out whole list for all available genres                                       |
 | Get My Top Artists                | GetMyTopArtists            | Prints out the user's most played artists and you can add songs by these artists to a playlist                                             |
