@@ -20,6 +20,9 @@
 
 [![license](https://img.shields.io/github/license/dec0dOS/amazing-github-template.svg?style=flat-square)](LICENSE)
 [![GitHub tag](https://img.shields.io/github/tag/SamTheCoder777/Custom-Spotify-Manager?include_prereleases=&sort=semver&color=blue)](https://github.com/SamTheCoder777/Custom-Spotify-Manager/releases/)
+[![CodeFactor](https://www.codefactor.io/repository/github/samthecoder777/custom-spotify-manager/badge)](https://www.codefactor.io/repository/github/samthecoder777/custom-spotify-manager)
+
+
 [![OS - Windows](https://img.shields.io/badge/OS-Windows-blue?logo=windows&logoColor=white)](https://www.microsoft.com/ "Go to Microsoft homepage")
 [![Created by - SamTheCoder777](https://img.shields.io/badge/Created_by-SamTheCoder777-blue)](https://github.com/SamTheCoder777)
 
