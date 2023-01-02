@@ -34,7 +34,6 @@ public class Main {
             String user = "";
 
             while(!user.equalsIgnoreCase("q")){
-                try{
                     File myObj = new File("setup.txt");
                     Scanner reader = new Scanner(myObj);
                     String data = "";
@@ -47,9 +46,6 @@ public class Main {
                             token = data.substring(6);
                         }
                     }
-                } catch (FileNotFoundException e) {
-                    System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
-                }
 
                 spotifyApi = new SpotifyApi.Builder()
                         .setClientSecret(token)
@@ -71,12 +67,7 @@ public class Main {
                 user = input2.nextLine();
                 switch (user.toLowerCase().trim()){
                     case "init":
-                        try{
-                            AuthorizationCodeUri.execute();
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-
+                        AuthorizationCodeUri.execute();
                         break;
 
                     case "searchartists":
@@ -247,25 +238,21 @@ public class Main {
 
                     case "help":
                         AuthorizationCodeRefresh.authorizationCodeRefresh();
-                        System.out.println("List of commands:");
-                        System.out.println("init: Set up program for the first run");
-                        System.out.println();
-                        System.out.println("CreateCategoryPlaylist: Creates playlist filled with the songs from category playlist");
-                        System.out.println("CreateCustomPlaylist: Creates playlist filled with random songs from the given playlists provided in \"playlistList.txt\"");
-                        System.out.println("CreateExploreArtistsPlaylist: Create playlists filled with artists related with given genre");
-                        System.out.println("CreatePlaylist: Creates playlist with given name");
-                        System.out.println("CreateRecommendedPlaylist: Creates playlist filled with recommended songs for a given genre");
-                        System.out.println();
-                        System.out.println("GetArtistsTopTracks: Prints out top tracks for a given artist");
-                        System.out.println("GetCategoryList: Prints out list of categories available");
-                        System.out.println("GetGenreList: Prints out whole list for all available genres");
-                        System.out.println("GetMyTopArtists: Prints out the user's most played artists");
-                        System.out.println("GetMyTopTracks: Prints out the user's most played tracks");
-                        System.out.println("GetRecommendations: Prints out recommended tracks for a given genre");
-                        System.out.println();
-                        System.out.println("SearchArtists: Searches for the artist with given name");
-                        System.out.println("SearchGenre: Prints out genre that starts with given character");
-                        System.out.println();
+                        System.out.println(ansi().render("\n@|yellow List of commands:|@") +
+                                "\n\ninit: Set up program for the first run" +
+                                "\n\nCreateCategoryPlaylist: Creates playlist filled with the songs from category playlist" +
+                                "\nCreateCustomPlaylist: Creates playlist filled with random songs from the given playlists provided in \"playlistList.txt\"" +
+                                "\nCreateExploreArtistsPlaylist: Create playlists filled with artists related with given genre" +
+                                "\nCreatePlaylist: Creates playlist with given name" +
+                                "\nCreateRecommendedPlaylist: Creates playlist filled with recommended songs for a given genre" +
+                                "\n\nGetArtistsTopTracks: Prints out top tracks for a given artist" +
+                                "\nGetCategoryList: Prints out list of categories available" +
+                                "\nGetGenreList: Prints out whole list for all available genres" +
+                                "\nGetMyTopArtists: Prints out the user's most played artists" +
+                                "\nGetMyTopTracks: Prints out the user's most played tracks" +
+                                "\nGetRecommendations: Prints out recommended tracks for a given genre" +
+                                "\n\nSearchArtists: Searches for the artist with given name" +
+                                "\nSearchGenre: Prints out genre that starts with given character\n");
                         break;
 
                     default:
