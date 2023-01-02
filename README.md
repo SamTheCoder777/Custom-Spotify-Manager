@@ -43,6 +43,7 @@
 - [Extra Tutorials](#extra-tutorials)
     - [Create Custom Playlists](#create-custom-playlists)
 - [Disclaimer](#disclaimer)
+- [FAQ](#faq)
 - [Contributing](#contributing)
 - [Support](#support)
 - [License](#license)
@@ -226,6 +227,12 @@ The commands are not case sensitive
 ## Disclaimer
 
 Command **"CreateCategoryPlaylist"** may not work consistently due to Spotify not supporting some category playlists in some countries or offers very limited amount of category playlists. If it does not work as expected, please use **"CreateCustomPlaylist"** instead by adding the ID of the playlists you wanted to get random songs from in **playlistList.txt**
+
+## FAQ
+
+**Language characters are shown as question marks in the command prompt**
+
+Change your cmd to UTF-8 format. Here is a good place to start [Link](https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8)
 
 ## Contributing
 
