@@ -82,6 +82,7 @@ Key features of **Custom Spotify Manager**:
 
 - [Spotify API](https://developer.spotify.com/documentation/web-api/)
 - [Spotify Web API Java](https://github.com/spotify-web-api-java/spotify-web-api-java)
+- [Jansi](https://github.com/fusesource/jansi)
 
 ## Getting Started
 
@@ -255,6 +256,7 @@ Thanks for these awesome resources that were used during the development of the 
 
 - <https://github.com/dec0dOS/amazing-github-template>
 - <https://github.com/spotify-web-api-java/spotify-web-api-java>
+- <https://github.com/fusesource/jansi>
 - <https://github.com/MichaelCurrin/badge-generator>
 - <https://developer.spotify.com/documentation/web-api/>
 - <https://developer.spotify.com/console/>
