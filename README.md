@@ -34,6 +34,7 @@
 - [About](#about)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
+  - [Downloading Windows Terminal (Optional)](#downloading-windows-terminal-optional)
   - [Prerequisites](#prerequisites)
   - [Usage](#usage)
     - [Running Custom Spotify Manager](#running-custom-spotify-manager)
