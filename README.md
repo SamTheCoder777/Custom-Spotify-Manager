@@ -33,6 +33,7 @@
 
 - [About](#about)
   - [Built With](#built-with)
+  - [Roadmap](#roadmap)
 - [Getting Started](#getting-started)
   - [Downloading Windows Terminal (Optional)](#downloading-windows-terminal-optional)
   - [Prerequisites](#prerequisites)
