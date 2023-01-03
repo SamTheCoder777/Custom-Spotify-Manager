@@ -85,6 +85,12 @@ Key features of **Custom Spotify Manager**:
 - [Spotify Web API Java](https://github.com/spotify-web-api-java/spotify-web-api-java)
 - [Jansi](https://github.com/fusesource/jansi)
 
+### Roadmap
+
+You can see all the planned features for this program [here](https://github.com/SamTheCoder777/Custom-Spotify-Manager/issues/15)
+
+This list is a subject to change
+
 ## Getting Started
 
 ### Downloading Windows Terminal (Optional)
