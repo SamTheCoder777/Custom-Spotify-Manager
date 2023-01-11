@@ -232,6 +232,7 @@ The commands are not case sensitive
 > Do not delete the hyphens in the file or the program may not work as expected
 
 ## Disclaimer
+**Custom Spotify Manager is not endorsed by Spotify and does not reflect the views or opinions of Spotify or anyone officially involved in producing or managing Spotify properties. Spotify and all associated properties are trademarks or registered trademarks of Spotify, Inc**
 
 Command **"CreateCategoryPlaylist"** may not work consistently due to Spotify not supporting some category playlists in some countries or offers very limited amount of category playlists. If it does not work as expected, please use **"CreateCustomPlaylist"** instead by adding the ID of the playlists you wanted to get random songs from in **playlistList.txt**
 
