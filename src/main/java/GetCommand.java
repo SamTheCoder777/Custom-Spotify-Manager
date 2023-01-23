@@ -71,7 +71,7 @@ public class GetCommand {
                     Main.includeInstrumental = input.next().equalsIgnoreCase("y");
                     System.out.println();
                     UserTopArtists.createUsersTopArtistsPlaylist();
-                } //TODO add this playlistPublic option for all playlist creating methods
+                }
                 System.out.println();
             }
             case "getmytoptracks" -> {

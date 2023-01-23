@@ -54,7 +54,7 @@ public class UserTopArtists {
                     .build();
 
            CreatePlaylistRequest createPlaylistRequest = Main.spotifyApi.createPlaylist(getCurrentUsersProfileRequest.execute().getId(), Main.name)
-                   .public_(Main.playlistPublic) //TODO add this flag to all playlist creations
+                   .public_(Main.playlistPublic)
                    .build();
 
             Playlist playlist = createPlaylistRequest.execute();
