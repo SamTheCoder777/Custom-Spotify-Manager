@@ -61,6 +61,8 @@ public class GetCommand {
                     input.nextLine();
                     System.out.println(ansi().render("@|green Name of the playlist:|@"));
                     Main.name = input.nextLine();
+                    System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                    Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                     System.out.println(ansi().render("@|green How many artists (randomized) should be included in the playlist?|@"));
                     Main.numArtists = input.nextInt();
                     System.out.println(ansi().render("@|green How many songs per artists?|@"));
@@ -84,6 +86,8 @@ public class GetCommand {
                     input.nextLine();
                     System.out.println(ansi().render("@|green Name of the playlist:|@"));
                     Main.name = input.nextLine();
+                    System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                    Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                     System.out.println();
                     UserTopTracks.createUserTopTrackPlaylist();
                 }
@@ -93,6 +97,8 @@ public class GetCommand {
                 AuthorizationCodeRefresh.authorizationCodeRefresh();
                 System.out.println(ansi().render("@|green Name of the playlist:|@"));
                 Main.name = input.nextLine();
+                System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                 System.out.println();
                 CreatePlaylist.execute();
                 System.out.println();
@@ -105,6 +111,8 @@ public class GetCommand {
                 Main.genre = input.nextLine();
                 System.out.println(ansi().render("@|green Name of the playlist:|@"));
                 Main.name = input.nextLine();
+                System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                 System.out.println(ansi().render("@|green How many playlists to search?|@ @|yellow (Total # of songs = [# of playlists] X [# of songs per playlist])|@"));
                 Main.numPlaylists = input.nextInt();
                 System.out.println(ansi().render("@|green How many songs per playlist?|@ @|yellow (Total # of songs = [# of playlists] X [# of songs per playlist])|@"));
@@ -119,6 +127,8 @@ public class GetCommand {
                 Main.genre = input.nextLine();
                 System.out.println(ansi().render("@|green Name of the playlist:|@"));
                 Main.name = input.nextLine();
+                System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                 System.out.println(ansi().render("@|green How many playlists to search? |@" +
                         "\n@|yellow (Current number playlists in the file: " + CreateCustomPlaylist.playlistNumbers() + ")|@"));
                 Main.numPlaylists = input.nextInt();
@@ -134,6 +144,8 @@ public class GetCommand {
                 Main.genre = input.nextLine();
                 System.out.println(ansi().render("@|green Name of the playlist:|@"));
                 Main.name = input.nextLine();
+                System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                 System.out.println();
                 CreateRecommendedPlaylist.execute();
                 System.out.println();
@@ -149,6 +161,8 @@ public class GetCommand {
                 Main.genre = input.nextLine();
                 System.out.println(ansi().render("@|green Name of the playlist?|@"));
                 Main.name = input.nextLine();
+                System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
+                Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                 System.out.println(ansi().render("@|green How many artists?|@"));
                 Main.numArtists = input.nextInt();
                 System.out.println(ansi().render("@|green How many songs per artist?|@"));
