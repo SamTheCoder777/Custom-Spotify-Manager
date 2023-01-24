@@ -42,7 +42,7 @@
     - [Set Up the Program](#set-up-the-program)
     - [List of Commands](#list-of-commands)
 - [Extra Tutorials](#extra-tutorials)
-    - [Create Custom Playlists](#create-custom-playlists)
+    - [Remix Playlists](#remix-playlists)
 - [Disclaimer](#disclaimer)
 - [FAQ](#faq)
 - [Contributing](#contributing)
@@ -207,7 +207,7 @@ The commands are not case sensitive
 | Search Genre                    | SearchGenre                     | Prints out genre that starts with given character                                                  |
 
 ## Extra Tutorials
-### Create Custom Playlists
+### Remix Playlists
 1. Go to the page of one of playlists you want to get random songs from
 <img src="docs/images/playlist.png" width="400"/>
 
