@@ -182,22 +182,22 @@ init
 The commands are not case sensitive
 
 
-| Name                       | command            | Description                                                                 |
-| -------------------------- | ------------------------------ | --------------------------------------------------------------------------- |
-| Initialize                 | init                           | Set up program for the first run                                            |
-| Create Category Playlist   | CreateCategoryPlaylist         | Creates playlist filled with the songs from category playlist               |
-| Create Custom Playlist     | CreateCustomPlaylist     | Creates playlist filled with random songs from the given playlistsIDs provided in playlistList.txt |
-| Create Explore Artists Playlist| Create Explore Artists Playlist     | Create playlists filled with artists related with given genre                       |
-| Create Playlist        | CreatePlaylist       | Creates playlist with given name                                                   |
-| Create Recommended Playlist              | CreateRecommendedPlaylist                  | Creates playlist filled with recommended songs for a given genre     |
-| Get Artist's Top Tracks  | GetArtistsTopTracks                  | Prints out top tracks for a given artist                                      |
-| Get Category List               | GetCategoryList          | Prints out list of categories available          |
-| Get Genre List             | GetGenreList                  | Prints out whole list for all available genres                                       |
-| Get My Top Artists                | GetMyTopArtists            | Prints out the user's most played artists and you can add songs by these artists to a playlist                                             |
-| Get My Top Tracks        | GetMyTopTracks                  | Prints out the user's most played tracks and you can add these songs to a playlist                                              |
-| Get Recommendations | GetRecommendations                  | Prints out recommended tracks for a given genre                                          |
-| Search Artists            | SearchArtists                  | Searches for the artist with given name                                      |
-| Search Genre          |    SearchGenre               | Prints out genre that starts with given character                              |
+| Name                            | command                         | Description                                                                                        |
+|---------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------|
+| Initialize                      | init                            | Set up program for the first run                                                                   |
+| Create Category Playlist        | CreateCategoryPlaylist          | Creates playlist filled with the songs from category playlist                                      |
+| Remix Playlists                 | RemixPlaylists                  | Creates playlist filled with random songs from the given playlistsIDs provided in playlistList.txt |
+| Create Explore Artists Playlist | Create Explore Artists Playlist | Create playlists filled with artists related with given genre                                      |
+| Create Playlist                 | CreatePlaylist                  | Creates playlist with given name                                                                   |
+| Create Recommended Playlist     | CreateRecommendedPlaylist       | Creates playlist filled with recommended songs for a given genre                                   |
+| Get Artist's Top Tracks         | GetArtistsTopTracks             | Prints out top tracks for a given artist                                                           |
+| Get Category List               | GetCategoryList                 | Prints out list of categories available                                                            |
+| Get Genre List                  | GetGenreList                    | Prints out whole list for all available genres                                                     |
+| Get My Top Artists              | GetMyTopArtists                 | Prints out the user's most played artists and you can add songs by these artists to a playlist     |
+| Get My Top Tracks               | GetMyTopTracks                  | Prints out the user's most played tracks and you can add these songs to a playlist                 |
+| Get Recommendations             | GetRecommendations              | Prints out recommended tracks for a given genre                                                    |
+| Search Artists                  | SearchArtists                   | Searches for the artist with given name                                                            |
+| Search Genre                    | SearchGenre                     | Prints out genre that starts with given character                                                  |
 
 ## Extra Tutorials
 ### Create Custom Playlists
@@ -226,7 +226,9 @@ The commands are not case sensitive
 
 ## Disclaimer
 
-Command **"CreateCategoryPlaylist"** may not work consistently due to Spotify not supporting some category playlists in some countries or offers very limited amount of category playlists. If it does not work as expected, please use **"CreateCustomPlaylist"** instead by adding the ID of the playlists you wanted to get random songs from in **playlistList.txt**
+Command **"CreateCategoryPlaylist"** may not work consistently due to Spotify not supporting some category playlists in
+some countries or offers very limited amount of category playlists. If it does not work as expected, please use **"
+RemixPlaylists"** instead by adding the ID of the playlists you wanted to get random songs from in **playlistList.txt**
 
 ## FAQ
 

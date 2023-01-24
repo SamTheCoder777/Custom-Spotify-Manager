@@ -121,7 +121,7 @@ public class GetCommand {
                 CreateCategoryPlaylist.execute();
                 System.out.println();
             }
-            case "createcustomplaylist" -> {
+            case "remixplaylists" -> {
                 AuthorizationCodeRefresh.authorizationCodeRefresh();
                 System.out.println(ansi().render("@|green Genre preference|@ @|yellow (This is for in case there are duplicates. Press enter to skip):|@"));
                 Main.genre = input.nextLine();
@@ -130,12 +130,12 @@ public class GetCommand {
                 System.out.println(ansi().render("@|green Would you like the playlist to be public? |@@|yellow (y or n)|@"));
                 Main.playlistPublic = (input.nextLine().equalsIgnoreCase("y"));
                 System.out.println(ansi().render("@|green How many playlists to search? |@" +
-                        "\n@|yellow (Current number playlists in the file: " + CreateCustomPlaylist.playlistNumbers() + ")|@"));
+                        "\n@|yellow (Current number playlists in the file: " + RemixPlaylists.playlistNumbers() + ")|@"));
                 Main.numPlaylists = input.nextInt();
                 System.out.println(ansi().render("@|green How many songs per playlist|@ @|yellow [Max: 100]|@@|green ?|@ @|yellow (Total # of songs = [# of playlists] X [# of songs per playlists])|@"));
                 Main.limit = input.nextInt();
                 System.out.println();
-                CreateCustomPlaylist.execute();
+                RemixPlaylists.execute();
                 System.out.println();
             }
             case "createrecommendedplaylist" -> {
@@ -178,7 +178,7 @@ public class GetCommand {
                 System.out.println(ansi().render("\n@|yellow List of commands:|@") +
                         "\n\ninit: Set up program for the first run" +
                         "\n\nCreateCategoryPlaylist: Creates playlist filled with the songs from category playlist" +
-                        "\nCreateCustomPlaylist: Creates playlist filled with random songs from the given playlists provided in \"playlistList.txt\"" +
+                        "\nRemixPlaylists: Creates a playlist filled with random songs from the given playlists provided in \"playlistList.txt\"" +
                         "\nCreateExploreArtistsPlaylist: Create playlists filled with artists related with given genre" +
                         "\nCreatePlaylist: Creates playlist with given name" +
                         "\nCreateRecommendedPlaylist: Creates playlist filled with recommended songs for a given genre" +
