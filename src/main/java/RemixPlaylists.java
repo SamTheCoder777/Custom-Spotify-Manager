@@ -1,7 +1,6 @@
 import org.apache.hc.core5.http.ParseException;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import se.michaelthelin.spotify.model_objects.IPlaylistItem;
-import se.michaelthelin.spotify.model_objects.special.SnapshotResult;
 import se.michaelthelin.spotify.model_objects.specification.Playlist;
 import se.michaelthelin.spotify.model_objects.specification.Recommendations;
 import se.michaelthelin.spotify.requests.data.playlists.AddItemsToPlaylistRequest;
@@ -19,7 +18,7 @@ import java.util.Scanner;
 
 import static org.fusesource.jansi.Ansi.ansi;
 
-public class CreateCustomPlaylist {
+public class RemixPlaylists {
     private static final ArrayList<String> playlistArrayList = new ArrayList<String>();
 
 
