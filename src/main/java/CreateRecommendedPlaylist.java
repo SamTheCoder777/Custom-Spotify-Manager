@@ -34,8 +34,8 @@ public class CreateRecommendedPlaylist {
             playlist = createPlaylistRequest.execute();
             playlistId = playlist.getId();
 
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nTIP: make sure your genre exists!|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "\nTIP: make sure your genre exists!|@"));
         }
     }
 
@@ -52,8 +52,8 @@ public class CreateRecommendedPlaylist {
             addItemsToPlaylistRequest.execute();
             System.out.println(ansi().render("@|green -----------DONE-----------|@"));
             System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
 
     }

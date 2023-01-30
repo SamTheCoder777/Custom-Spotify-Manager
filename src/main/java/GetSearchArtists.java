@@ -13,7 +13,7 @@ public class GetSearchArtists {
     private static SearchArtistsRequest searchArtistsRequest;
     Paging<Artist> artistPagingToReturn;
     GetSearchArtists(SpotifyApi spotifyApi, String name){
-        searchArtistsRequest = spotifyApi.searchArtists(name).limit(5).build();
+        searchArtistsRequest = spotifyApi.searchArtists(name).limit(5).market(Main.location).build();
 
     }
 
@@ -30,13 +30,13 @@ public class GetSearchArtists {
             //set artistPagingToReturn
             setArtistPagingToReturn(artistPaging);
             //prepare search result print
-            for(Artist artist: artistPaging.getItems()){
-                a+=(counter + ": " + artist.getName()+"\n");
+            for (Artist artist : artistPaging.getItems()) {
+                a += (counter + ": " + artist.getName() + "\n");
                 counter++;
             }
             return a;
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
             return null;
         }
     }

@@ -26,20 +26,20 @@ public class UserTopArtists {
     public static void getUsersTopArtists() {
         try {
 
-                getUsersTopArtistsRequest = Main.spotifyApi.getUsersTopArtists()
-                        .limit(Main.limit)
-                        .build();
+            getUsersTopArtistsRequest = Main.spotifyApi.getUsersTopArtists()
+                    .limit(Main.limit)
+                    .build();
 
-                final Paging<Artist> artistPaging = getUsersTopArtistsRequest.execute();
-                int i = 1;
-                for(Artist artist : artistPaging.getItems()){
-                    System.out.println(i + ": " + artist.getName());
-                    i++;
-                }
+            final Paging<Artist> artistPaging = getUsersTopArtistsRequest.execute();
+            int i = 1;
+            for (Artist artist : artistPaging.getItems()) {
+                System.out.println(i + ": " + artist.getName());
+                i++;
+            }
 
 
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 
@@ -110,14 +110,14 @@ public class UserTopArtists {
                                 .build()
                                 .execute();
                     }
-                }
+            }
 
             System.out.println(ansi().render("@|green -----------DONE-----------|@"));
             System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
 
-        }catch(InterruptedException|IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 }

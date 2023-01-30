@@ -1,5 +1,6 @@
 import com.neovisionaries.i18n.CountryCode;
 import org.apache.hc.core5.http.ParseException;
+import org.fusesource.jansi.AnsiConsole;
 import se.michaelthelin.spotify.SpotifyApi;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import se.michaelthelin.spotify.model_objects.specification.Artist;
@@ -14,7 +15,6 @@ import static org.fusesource.jansi.Ansi.ansi;
 
 public class GetArtistsTopTracks {
     private final String name;
-    private final Paging<Artist> artistPaging = new GetSearchArtists(Main.spotifyApi, "").getArtist();
     private final SpotifyApi spotifyApi;
     private int index;
     private final Scanner input;
@@ -57,13 +57,13 @@ public class GetArtistsTopTracks {
     public static void getArtistsTopTracks_Sync() {
         try {
             Track[] tracks = getArtistsTopTracksRequest.execute();
-            for(int i = 0; i < tracks.length; i++){
-                System.out.print(ansi().render("@|green "+ (i+1) +  ": |@") + tracks[i].getName()+" ");
+            for (int i = 0; i < tracks.length; i++) {
+                System.out.print(ansi().render("@|green " + (i + 1) + ": |@") + tracks[i].getName() + " ");
                 System.out.printf(ansi().render("@|green (%d:%02d) |@").toString(), ((tracks[i].getDurationMs() / 1000) / 60), (tracks[i].getDurationMs() / 1000) % 60);
                 System.out.println(ansi().render("@|yellow (popularity: " + tracks[i].getPopularity() + ")|@"));
             }
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 

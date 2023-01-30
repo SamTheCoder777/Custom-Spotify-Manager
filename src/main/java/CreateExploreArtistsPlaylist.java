@@ -61,7 +61,7 @@ public class CreateExploreArtistsPlaylist {
 
             for(int i = 0; i < 3; i++){
                 searchArtistsRequest = Main.spotifyApi.searchArtists(q)
-//          .market(CountryCode.SE)
+                        .market(Main.location)
             .limit(50)
             .offset(offset)
 //          .includeExternal("audio")
@@ -86,9 +86,9 @@ public class CreateExploreArtistsPlaylist {
             for(int i = 0; i < Main.numArtists; i++){
                 getArtistsAlbumsRequest = Main.spotifyApi.getArtistsAlbums(artistIDs[i])
                         .album_type("album")
-            .limit(50)
+                        .limit(50)
 //          .offset(0)
-//          .market(CountryCode.SE)
+                        .market(Main.location)
                         .build();
                     final Paging<AlbumSimplified> albumSimplifiedPaging = getArtistsAlbumsRequest.execute();
                     if (albumSimplifiedPaging.getItems().length > 1) {
@@ -127,8 +127,8 @@ public class CreateExploreArtistsPlaylist {
 
                     }
             }
-        } catch (InterruptedException|ParseException|SpotifyWebApiException|IOException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
         System.out.println(ansi().render("@|green -----------DONE-----------|@"));
         System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));

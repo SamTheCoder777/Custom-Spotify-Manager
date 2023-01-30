@@ -18,6 +18,7 @@ public class GetRecommendations {
     public static void execute() {
         getRecommendationsRequest = spotifyApi.getRecommendations()
                 .limit(Main.limit)
+                .market(Main.location)
                 .seed_genres(Main.genre)
                 .build();
         try {
@@ -37,12 +38,13 @@ public class GetRecommendations {
     public static Recommendations getRecommendations() {
         getRecommendationsRequest = spotifyApi.getRecommendations()
                 .seed_genres(Main.genre)
+                .market(Main.location)
                 .build();
         try {
             Recommendations recommendations = getRecommendationsRequest.execute();
             return recommendations;
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
             return null;
         }
     }
@@ -51,12 +53,13 @@ public class GetRecommendations {
         getRecommendationsRequest = spotifyApi.getRecommendations()
                 .limit(50)
                 .seed_genres(Main.genre)
+                .market(Main.location)
                 .build();
         try {
             final Recommendations recommendations = getRecommendationsRequest.execute();
             return recommendations;
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
             return null;
         }
     }

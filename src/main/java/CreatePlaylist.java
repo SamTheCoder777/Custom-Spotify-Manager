@@ -24,8 +24,8 @@ public class CreatePlaylist {
             Playlist playlist = createPlaylistRequest.execute();
 
             System.out.println(ansi().render("@|green Name: |@" + playlist.getName()));
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 

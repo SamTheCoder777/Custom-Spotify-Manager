@@ -46,8 +46,8 @@ public class RemixPlaylists {
             playlist = createPlaylistRequest.execute();
             playlistId = playlist.getId();
 
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nTIP: make sure your genre exists!|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "\nTIP: make sure your genre exists!|@"));
         }
     }
 
@@ -58,18 +58,18 @@ public class RemixPlaylists {
             String data;
             while(reader.hasNextLine()){
                 data = reader.nextLine();
-                if(!data.startsWith("-")){
+                if (!data.startsWith("-")) {
                     playlistArrayList.add(data);
                 }
             }
-            for(int i = 0; i < playlistArrayList.size(); i++){
+            for (int i = 0; i < playlistArrayList.size(); i++) {
                 GetPlaylistRequest getPlaylistRequest = Main.spotifyApi.getPlaylist(playlistArrayList.get(i))
                         .build();
 
                 playlists.add(getPlaylistRequest.execute());
             }
-        } catch (SpotifyWebApiException | ParseException | IOException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
     public static void addSongs() {
@@ -120,12 +120,9 @@ public class RemixPlaylists {
             System.out.println(ansi().render("@|green -----------DONE-----------|@"));
             System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
-        }catch (ParseException | SpotifyWebApiException | IOException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
-        }catch (IndexOutOfBoundsException e){
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nHint: is playlistList.txt empty?|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "\nHint: is playlistList.txt empty?|@"));
         }
-
     }
 
     public static int playlistNumbers(){
@@ -141,8 +138,8 @@ public class RemixPlaylists {
                     lineNum++;
                 }
             }
-        } catch (FileNotFoundException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
         return lineNum;
     }

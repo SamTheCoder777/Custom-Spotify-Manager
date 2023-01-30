@@ -24,16 +24,16 @@ public class GetCategoryPlaylist {
 
     public static Paging<PlaylistSimplified>  getPlaylists() {
         try {
-             getCategoryRequest = Main.spotifyApi.getCategorysPlaylists(Main.category)
-//          .country(CountryCode.SE)
+            getCategoryRequest = Main.spotifyApi.getCategorysPlaylists(Main.category)
+                    .country(Main.location)
                     .limit(50)
 //          .offset(0)
                     .build();
 
             playlistSimplifiedPaging = getCategoryRequest.execute();
             return playlistSimplifiedPaging;
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
             return null;
         }
     }
@@ -52,18 +52,18 @@ public class GetCategoryPlaylist {
                 for(int i = 0; i < categoryPaging.getItems().length; i++){
                     categories.add(categoryPaging.getItems()[i].getName());
                 }
-                offset+=50;
-                if(categoryPaging.getItems().length == 0){
+                offset += 50;
+                if (categoryPaging.getItems().length == 0) {
                     isListComplete = true;
                 }
             }
 
             Collections.sort(categories);
-            for(String s : categories){
+            for (String s : categories) {
                 System.out.println(s);
             }
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 
