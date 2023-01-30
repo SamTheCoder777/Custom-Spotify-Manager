@@ -18,11 +18,11 @@ public class GetSeedGenreList {
         try {
             final String[] strings = getAvailableGenreSeedsRequest.execute();
 
-            for(String string : strings){
+            for (String string : strings) {
                 System.out.println(string);
             }
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 

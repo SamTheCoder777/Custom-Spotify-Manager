@@ -22,7 +22,7 @@ public class GetCommand {
                 AuthorizationCodeRefresh.authorizationCodeRefresh();
                 System.out.println(ansi().render("@|green Enter name you want to search|@"));
                 Main.name = input.nextLine();
-                GetArtistsTopTracks top = new GetArtistsTopTracks(Main.spotifyApi, Main.name, CountryCode.US);
+                GetArtistsTopTracks top = new GetArtistsTopTracks(Main.spotifyApi, Main.name, Main.location);
                 System.out.println();
                 top.execute();
                 System.out.println();

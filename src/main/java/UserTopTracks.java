@@ -28,14 +28,14 @@ public class UserTopTracks {
         try {
             Paging<Track> trackPaging = getUsersTopTracksRequest.execute();
             tracks = trackPaging.getItems();
-            for(int i = 0; i < tracks.length; i++ ){
-                System.out.print(ansi().render("@|green "+ (i+1) +  ": |@") + tracks[i].getName()+" ");
+            for (int i = 0; i < tracks.length; i++) {
+                System.out.print(ansi().render("@|green " + (i + 1) + ": |@") + tracks[i].getName() + " ");
                 System.out.printf(ansi().render("@|green (%d:%02d) |@").toString(), ((tracks[i].getDurationMs() / 1000) / 60), (tracks[i].getDurationMs() / 1000) % 60);
                 System.out.print(ansi().render("@|yellow (popularity: " + tracks[i].getPopularity() + ") |@"));
-                System.out.println(" ("+tracks[i].getExternalUrls().getExternalUrls().get("spotify")+")");
+                System.out.println(" (" + tracks[i].getExternalUrls().getExternalUrls().get("spotify") + ")");
             }
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 
@@ -64,9 +64,8 @@ public class UserTopTracks {
             System.out.println(ansi().render("@|green -----------DONE-----------|@"));
             System.out.println(ansi().render("@|green Spotify url: |@" + playlist.getExternalUrls().getExternalUrls().get("spotify")));
 
-        }
-        catch(IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 }

@@ -21,15 +21,15 @@ public class AuthorizationCodeRefresh {
             File myObj = new File("setup.txt");
             Scanner reader = new Scanner(myObj);
             String data = "";
-            while(reader.hasNextLine()){
+            while (reader.hasNextLine()) {
                 data = reader.nextLine();
-                if(data.startsWith("code=")){
+                if (data.startsWith("code=")) {
                     code = data.substring(5);
                     authorizationCodeRequest = Main.spotifyApi.authorizationCode(code)
                             .build();
                 }
             }
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -75,7 +75,7 @@ public class AuthorizationCodeRefresh {
             Scanner reader = new Scanner(myObj);
             refreshCode = reader.nextLine();
             return refreshCode;
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 

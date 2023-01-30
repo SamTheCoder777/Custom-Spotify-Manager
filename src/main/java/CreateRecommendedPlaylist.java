@@ -34,8 +34,8 @@ public class CreateRecommendedPlaylist {
             playlist = createPlaylistRequest.execute();
             playlistId = playlist.getId();
 
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"\nTIP: make sure your genre exists!|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "\nTIP: make sure your genre exists!|@"));
         }
     }
 

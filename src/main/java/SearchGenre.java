@@ -22,14 +22,14 @@ public class SearchGenre {
             char[] genreChar;
             char[] alphabetChar = alphabet.toCharArray();
             System.out.println();
-            for(String genre : strings){
+            for (String genre : strings) {
                 genreChar = genre.toCharArray();
-                if(genreChar[0] == alphabetChar[0]){
+                if (genreChar[0] == alphabetChar[0]) {
                     System.out.println(genre);
                 }
             }
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 }
