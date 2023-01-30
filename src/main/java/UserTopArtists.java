@@ -26,9 +26,9 @@ public class UserTopArtists {
     public static void getUsersTopArtists() {
         try {
 
-                getUsersTopArtistsRequest = Main.spotifyApi.getUsersTopArtists()
-                        .limit(Main.limit)
-                        .build();
+            getUsersTopArtistsRequest = Main.spotifyApi.getUsersTopArtists()
+                    .limit(Main.limit)
+                    .build();
 
             final Paging<Artist> artistPaging = getUsersTopArtistsRequest.execute();
             int i = 1;

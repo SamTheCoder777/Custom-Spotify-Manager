@@ -43,8 +43,8 @@ public class GetRecommendations {
         try {
             Recommendations recommendations = getRecommendationsRequest.execute();
             return recommendations;
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
             return null;
         }
     }

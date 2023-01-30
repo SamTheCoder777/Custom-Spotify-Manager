@@ -42,8 +42,8 @@ public class AuthorizationCodeRefresh {
 
             // Set access and refresh token for further "spotifyApi" object usage
             Main.spotifyApi.setAccessToken(authorizationCodeCredentials.getAccessToken());
-        } catch (IOException | SpotifyWebApiException | ParseException e) {
-            System.out.println(ansi().render("@|red Error: " + e.getMessage()+"|@"));
+        } catch (Exception e) {
+            System.out.println(ansi().render("@|red Error: " + e.getMessage() + "|@"));
         }
     }
 
