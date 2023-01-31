@@ -86,6 +86,7 @@ Key features of **Custom Spotify Manager**:
 - [Spotify API](https://developer.spotify.com/documentation/web-api/)
 - [Spotify Web API Java](https://github.com/spotify-web-api-java/spotify-web-api-java)
 - [Jansi](https://github.com/fusesource/jansi)
+- [IP-API](https://ip-api.com/)
 
 ### Roadmap
 
@@ -104,7 +105,8 @@ You will be able to click links and characters will not be broken
 
 ### Prerequisites
 
-Make sure you have the Java 17.0.5 or higher installed.
+Make sure you have Java 17 installed.
+> The characters may not correctly render in higher or lower versions
 
 You can easily run this program in Windows command list.
 > This program is not tested on other operating systems.
@@ -114,7 +116,6 @@ You can verify your java version in CMD with:
 ```sh
 java -version
 ```
-
 
 ### Usage
 
