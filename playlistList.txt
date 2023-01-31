@@ -1,5 +1,0 @@
--------------------
-playlistId1 [Do not delete the hyphens surrounding the IDs]
-playlistId2 [Just add IDs each on separate lines]
-playlistId3
--------------------
